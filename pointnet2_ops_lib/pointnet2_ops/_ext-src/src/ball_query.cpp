@@ -1,7 +1,6 @@
-#include <ATen/ATen.h>
-
 #include "ball_query.h"
 #include "utils.h"
+#include <ATen/ATen.h>
 
 void query_ball_point_kernel_wrapper(int b, int n, int m, float radius,
                                      int nsample, const float *new_xyz,

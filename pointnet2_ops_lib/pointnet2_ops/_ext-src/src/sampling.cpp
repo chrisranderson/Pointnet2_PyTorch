@@ -1,7 +1,6 @@
-#include <ATen/ATen.h>
-
 #include "sampling.h"
 #include "utils.h"
+#include <ATen/ATen.h>
 
 void gather_points_kernel_wrapper(int b, int c, int n, int npoints,
                                   const float *points, const int *idx,

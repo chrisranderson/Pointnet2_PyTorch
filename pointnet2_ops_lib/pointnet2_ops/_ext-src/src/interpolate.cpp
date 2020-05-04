@@ -1,7 +1,6 @@
-#include <ATen/ATen.h>
-
 #include "interpolate.h"
 #include "utils.h"
+#include <ATen/ATen.h>
 
 
 void three_nn_kernel_wrapper(int b, int n, int m, const float *unknown,

@@ -1,7 +1,6 @@
-#include <ATen/ATen.h>
-
 #include "group_points.h"
 #include "utils.h"
+#include <ATen/ATen.h>
 
 void group_points_kernel_wrapper(int b, int c, int n, int npoints, int nsample,
                                  const float *points, const int *idx,
