@@ -1,3 +1,5 @@
+#include <ATen/ATen.h>
+
 #include "sampling.h"
 #include "utils.h"
 
@@ -31,7 +33,7 @@ at::Tensor gather_points(at::Tensor points, at::Tensor idx) {
                                  idx.size(1), points.data_ptr<float>(),
                                  idx.data_ptr<int>(), output.data_ptr<float>());
   } else {
-    AT_CHECK(false, "CPU not supported");
+    TORCH_CHECK(false, "CPU not supported");
   }
 
   return output;
@@ -58,7 +60,7 @@ at::Tensor gather_points_grad(at::Tensor grad_out, at::Tensor idx,
                                       idx.data_ptr<int>(),
                                       output.data_ptr<float>());
   } else {
-    AT_CHECK(false, "CPU not supported");
+    TORCH_CHECK(false, "CPU not supported");
   }
 
   return output;
@@ -80,7 +82,7 @@ at::Tensor furthest_point_sampling(at::Tensor points, const int nsamples) {
         points.size(0), points.size(1), nsamples, points.data_ptr<float>(),
         tmp.data_ptr<float>(), output.data_ptr<int>());
   } else {
-    AT_CHECK(false, "CPU not supported");
+    TORCH_CHECK(false, "CPU not supported");
   }
 
   return output;

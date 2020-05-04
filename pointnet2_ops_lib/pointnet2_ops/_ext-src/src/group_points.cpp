@@ -1,3 +1,5 @@
+#include <ATen/ATen.h>
+
 #include "group_points.h"
 #include "utils.h"
 
@@ -29,7 +31,7 @@ at::Tensor group_points(at::Tensor points, at::Tensor idx) {
                                 points.data_ptr<float>(), idx.data_ptr<int>(),
                                 output.data_ptr<float>());
   } else {
-    AT_CHECK(false, "CPU not supported");
+    TORCH_CHECK(false, "CPU not supported");
   }
 
   return output;
@@ -55,7 +57,7 @@ at::Tensor group_points_grad(at::Tensor grad_out, at::Tensor idx, const int n) {
         grad_out.data_ptr<float>(), idx.data_ptr<int>(),
         output.data_ptr<float>());
   } else {
-    AT_CHECK(false, "CPU not supported");
+    TORCH_CHECK(false, "CPU not supported");
   }
 
   return output;
